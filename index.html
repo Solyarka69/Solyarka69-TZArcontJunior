@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="main">
+        <section class="cards-section">
+            <ul class="cards-list" id="cards-list">
+                <!-- Сюда карточки добавляются -->
+            </ul>
+        </section>
+
+
+        <section id="filter-sort-section" class="filter-sort-section">
+            <h2 class="main-text">Фильтр и Сортировка товаров</h2>
+            <form id="filter-sort-form">
+                <div class="filter-item">
+                    <label class="clickable-label">Со скидкой</label>
+                    <div class="dropdown">
+                        <div class="dropdown-button">Выбрать скидку <span class="arrow">&#9662;</span></div>
+                        <ul class="dropdown-list" id="discount-list">
+                            <li data-value="Все">Все</li>
+                            <li data-value="Да">Да</li>
+                            <li data-value="Нет">Нет</li>
+                        </ul>
+                    </div>
+                    <div class="selected-value" id="selected-discount" style="display: none;"></div>
+                </div>
+
+                <div class="filter-item">
+                    <label for="sort" class="clickable-label">Сортировка</label>
+                    <div class="dropdown">
+                        <div class="dropdown-button">Выберите сортировку<span class="arrow">&#9662;</span></div>
+                        <ul class="dropdown-list" id="sort-list">
+                            <li data-value="price-up">По цене ↑</li>
+                            <li data-value="price-down">По цене ↓</li>
+                            <li data-value="year-up">По году ↑</li>
+                            <li data-value="year-down">По году ↓</li>
+                            <li data-value="mileage-up">По пробегу ↑</li>
+                            <li data-value="mileage-down">По пробегу ↓</li>
+                            <li data-value="title-up">По названию ↑</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="filter-item">
+                    <label for="price-from">Цена</label>
+                    <div class="divs-container">
+                        <div class="text-and-value">
+                            <label for="price-from">От</label>
+                            <input type="number" id="price-from" name="price-from" placeholder="₽" min="0">
+                        </div>
+                        <div class="text-and-value">
+                            <label for="price-to">До</label>
+                            <input type="number" id="price-to" name="price-to" placeholder="₽" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-item">
+                    <label for="year-from">Год выпуска</label>
+                    <div class="divs-container">
+                        <div class="text-and-value">
+                            <label for="year-from">От</label>
+                            <input type="number" id="year-from" name="year-from" placeholder="Год" min="2000">
+                        </div>
+                        <div class="text-and-value">
+                            <label for="year-to">До</label>
+                            <input type="number" id="year-to" name="year-to" placeholder="Год" min="2000">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-item">
+                    <label for="horsepower-from">Мощность, л.с.</label>
+                    <div class="divs-container">
+                        <div class="text-and-value">
+                            <label for="horsepower-from">От</label>
+                            <input type="number" id="horsepower-from" name="horsepower-from" placeholder="л.с." min="0">
+                        </div>
+                        <div class="text-and-value">
+                            <label for="horsepower-to">До</label>
+                            <input type="number" id="horsepower-to" name="horsepower-to" placeholder="л.с." min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-item">
+                    <label for="mileage-from">Пробег</label>
+                    <div class="divs-container">
+                        <div class="text-and-value">
+                            <label for="mileage-from">От</label>
+                            <input type="number" id="mileage-from" name="mileage-from" placeholder="км" min="0">
+                        </div>
+                        <div class="text-and-value">
+                            <label for="mileage-to">До</label>
+                            <input type="number" id="mileage-to" name="mileage-to" placeholder="км" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-item">
+                    <label for="car-brand" class="clickable-label">Марка авто</label>
+                    <div class="dropdown">
+                        <div class="dropdown-button">Выбрать марку<span class="arrow">&#9662;</span></div>
+                        <ul class="dropdown-list" id="car-brand-list">
+                            <li data-value="Changan">Changan</li>
+                            <li data-value="Ford">Ford</li>
+                            <li data-value="Opel">Opel</li>
+                            <li data-value="Citroen">Citroen</li>
+                            <li data-value="Lada">Lada</li>
+                            <li data-value="Kia">Kia</li>
+                            <li data-value="Chery">Chery</li>
+                            <li data-value="Exeed">Exeed</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="filter-item">
+                    <label for="car-model" class="clickable-label">Модель авто</label>
+                    <div class="dropdown">
+                        <div class="dropdown-button">Выбрать модель<span class="arrow">&#9662;</span></div>
+                        <ul class="dropdown-list" id="car-model-list">
+                            <li data-value="Vesta">Vesta</li>
+                            <li data-value="Kuga">Kuga</li>
+                            <li data-value="Fiesta">Fiesta</li>
+                            <li data-value="Astra">Astra</li>
+                            <li data-value="CS35">CS35</li>
+                            <li data-value="C5">C5</li>
+                            <li data-value="Tiggo-7">Tiggo 7</li>
+                            <li data-value="RX">RX</li>
+                            <li data-value="Cerato">Cerato</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="filter-item">
+                    <label for="transmission" class="clickable-label">Коробка</label>
+                    <div class="dropdown">
+                        <div class="dropdown-button">Выбрать коробку<span class="arrow">&#9662;</span></div>
+                        <ul class="dropdown-list" id="transmission-list">
+                            <li data-value="МКПП">МКПП</li>
+                            <li data-value="АКПП">АКПП</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="filter-item">
+                    <label for="drive-wheels" class="clickable-label">Привод</label>
+                    <div class="dropdown">
+                        <div class="dropdown-button">Выбрать привод<span class="arrow">&#9662;</span></div>
+                        <ul class="dropdown-list" id="drive-wheels-list">
+                            <li data-value="Передний">Передний</li>
+                            <li data-value="Полный">Полный</li>
+                            <li data-value="Задний">Задний</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="filter-actions">
+                    <button type="submit" class="submit-btn">Применить</button>
+                    <button type="reset" class="reset-btn">Сбросить фильтр</button>
+                </div>
+            </form>
+        </section>
+
+
+    </main>
+
+    <script type="module" src="./main.js"></script>
+    <script type="module" src="./js/filters.js"></script>
+    <script src="./js/dropDownButtons.js"></script>
+
+
+</body>
+
+</html>

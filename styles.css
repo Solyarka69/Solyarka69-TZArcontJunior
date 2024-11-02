@@ -1,0 +1,309 @@
+@charset "UTF-8";
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Убираем стрелки у input type='number' для всех браузеров */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  /* Для Chrome и Safari */
+  margin: 0;
+}
+
+input {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  width: 70px;
+  height: auto;
+}
+
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+}
+
+option {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: lightgray;
+}
+
+.main {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.cards-list {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.cards-list .card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: aliceblue;
+  border-radius: 25px;
+}
+.cards-list .card .card-content {
+  padding: 15px;
+}
+.cards-list .card .avatar {
+  display: inline-block;
+  width: 100%;
+  height: 250px;
+  margin: 20px auto;
+  border-radius: 25px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.7s ease-in-out;
+}
+.cards-list .card .avatar:hover {
+  transform: scale(1.08);
+}
+.cards-list .card .features {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.cards-list .card .features .feature {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  overflow: hidden;
+}
+.cards-list .card .features .feature p {
+  font-size: 12px;
+}
+.cards-list .card .features .feature .feature-img {
+  width: 15px;
+  height: 15px;
+}
+.cards-list .card .more-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cards-list .card .more-info .prices p:first-child {
+  color: rgb(202, 137, 32);
+  font-size: 20px;
+  font-weight: bold;
+}
+.cards-list .card .more-info .prices p:last-child {
+  text-decoration: line-through;
+}
+.cards-list .card .read-more-btn {
+  border: 2px solid rgb(202, 137, 32);
+  color: rgb(202, 137, 32);
+  padding: 15px;
+  border-radius: 50px;
+  transition: all 0.5s ease-in-out;
+}
+.cards-list .card .read-more-btn:hover {
+  background-color: rgb(202, 137, 32);
+  color: white;
+}
+
+.filter-sort-section {
+  min-width: 280px;
+  min-height: calc(100vh - 40px);
+}
+
+.card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  display: none;
+}
+
+.main-text {
+  color: aliceblue;
+  margin-bottom: 10px;
+  text-align: center;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.7), 3px 3px 0px rgba(0, 0, 0, 0.5), 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.filter-actions {
+  display: flex;
+  flex-direction: column;
+}
+.filter-actions button {
+  background-color: aliceblue;
+  border-radius: 10px;
+  padding: 15px;
+}
+.filter-actions :first-child {
+  margin-bottom: 10px;
+}
+
+.text-and-value {
+  display: flex;
+  align-items: center;
+}
+
+.divs-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.filter-item label {
+  margin: 0 10px;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 65px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.filter-item:nth-child(3),
+.filter-item:nth-child(4),
+.filter-item:nth-child(5),
+.filter-item:nth-child(6) {
+  height: 110px;
+}
+
+.clickable-label {
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-button {
+  padding: 10px;
+  cursor: pointer;
+  background: aliceblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 25px;
+  color: gray;
+}
+
+.arrow {
+  margin-left: 10px;
+}
+
+.dropdown-list {
+  display: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  background: aliceblue;
+  position: absolute;
+  z-index: 1000;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.dropdown-list.show {
+  display: block;
+  opacity: 1;
+}
+
+.dropdown-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-list li:hover {
+  background: #f0f0f0;
+}
+
+.selected-value {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.submit-btn, .reset-btn {
+  transition: all 0.5s ease-in-out;
+}
+
+.submit-btn:hover, .reset-btn:hover {
+  background-color: rgb(202, 137, 32);
+}
+
+.filter-item:hover {
+  position: relative;
+  top: 2px;
+}
+
+/* Медиа-запросы */
+@media (max-width: 1405px) {
+  .cards-list {
+    grid-template-columns: repeat(2, 50%);
+  }
+}
+@media (max-width: 1010px) {
+  .cards-list {
+    grid-template-columns: 1fr;
+  }
+  .filters-section {
+    width: 200px;
+  }
+}/*# sourceMappingURL=styles.css.map */
